@@ -1,21 +1,24 @@
-import { PrismaClient } from "@prisma/client";
+
+import { PrismaClient } from '@prisma/client'
 
 const prisma = new PrismaClient()
 
-
-async function main(){
-await prisma.user.create({
-    data :{
-        email : "me@gmail.com",
-        name : "me"
+async function main() {
+  await prisma.user.create({
+    data: {
+     email: "rashmi@gmail.com",
+     name: "r"
     }
-})
+  })
 }
-main().then(async()=>{
-    console.log("done")
+
+main()
+  .then(async () => {
+    console.log("done");
     await prisma.$disconnect()
-}).catch(async(err) => {
-    console.error(err)
+  })
+  .catch(async (e) => {
+    console.error(e)
     await prisma.$disconnect()
-    process.exit(1);
-})
+    process.exit(1)
+  })
